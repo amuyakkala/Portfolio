@@ -9,63 +9,93 @@ import {
   DiPython,
   DiGit,
   DiJava,
+  DiHtml5,
+  DiCss3,
+  DiAngularSimple,
+  DiDocker,
 } from "react-icons/di";
 import {
   SiRedis,
-  SiFirebase,
   SiNextdotjs,
-  SiSolidity,
   SiPostgresql,
+  SiTypescript,
+  SiVuedotjs,
+  SiTailwindcss,
+  SiExpress,
+  SiNestjs,
+  SiDjango,
+  SiSpringboot,
+  SiElasticsearch,
+  SiAmazonaws,
+  SiKubernetes,
+  SiTerraform,
+  SiPostman,
+  SiJest,
+  SiCypress,
+  SiSelenium,
+  SiJunit5,
+  SiGraphql,
+  SiAuth0,
+  SiJira,
 } from "react-icons/si";
-import { TbBrandGolang } from "react-icons/tb";
+import { TbPlugConnected } from "react-icons/tb";
+
+const TechIcon = ({ icon: Icon }) => (
+  <Col xs={4} md={2} className="tech-icons">
+    <Icon />
+  </Col>
+);
+
+const TechSection = ({ title, icons }) => (
+  <Row className="tech-section">
+    <Col xs={12}>
+      <h2 className="section-heading">{title}</h2>
+    </Col>
+    {icons.map((Icon, index) => (
+      <TechIcon key={index} icon={Icon} />
+    ))}
+  </Row>
+);
 
 function Techstack() {
+  const categories = [
+    {
+      title: "Languages",
+      icons: [DiJavascript1, SiTypescript, DiPython, DiJava, CgCPlusPlus],
+    },
+    {
+      title: "Front-End",
+      icons: [DiReact, SiNextdotjs, SiVuedotjs, DiAngularSimple, DiHtml5, DiCss3, SiTailwindcss],
+    },
+    {
+      title: "Back-End",
+      icons: [DiNodejs, SiExpress, SiNestjs, SiDjango, SiSpringboot],
+    },
+    {
+      title: "Databases",
+      icons: [SiPostgresql, DiMongodb, SiRedis, SiElasticsearch],
+    },
+    {
+      title: "DevOps & Cloud",
+      icons: [SiAmazonaws, DiDocker, SiKubernetes, SiTerraform],
+    },
+    {
+      title: "Testing & QA",
+      icons: [SiPostman, SiJest, SiCypress, SiSelenium, SiJunit5],
+    },
+    {
+      title: "Other Technologies",
+      icons: [SiGraphql, TbPlugConnected, SiAuth0, DiGit, SiJira],
+    },
+  ];
+
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <CgCPlusPlus />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <TbBrandGolang />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiReact />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiSolidity />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiMongodb />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiNextdotjs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiFirebase />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiRedis />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostgresql />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiPython />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiJava />
-      </Col>
-    </Row>
-  );
+    <div className="techstack-container">
+      {categories.map((category, index) => (
+        <TechSection key={index} title={category.title} icons={category.icons} />
+      ))}
+    </div>
+  );n
 }
 
 export default Techstack;
