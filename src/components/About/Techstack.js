@@ -95,7 +95,7 @@ function Techstack() {
         <TechSection key={index} title={category.title} icons={category.icons} />
       ))}
     </div>
-  );n
+  );
 }
 
 export default Techstack;
